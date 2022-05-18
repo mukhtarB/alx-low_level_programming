@@ -13,20 +13,21 @@ int _strlen(char *str);
  */
 char *_strdup(char *str)
 {
-	int len = _strlen(str);
-	char *newerstr;
+	unsigned int len = _strlen(str);
+	char *allocated_ptr;
 
-	char *allocated_ptr = (char *) malloc((len + 1) * sizeof(*str));
+	if (str == NULL)
+		return (NULL);
 
-	if (str == NULL || allocated_ptr == NULL)
+	allocated_ptr = malloc((len + 1) * sizeof(*str));
+
+	if (allocated_ptr == NULL)
 	{
 		free(allocated_ptr);
 		return (NULL);
 	}
 
-	newerstr = _strcopy(allocated_ptr, str);
-
-	return (newerstr);
+	return (_strcopy(allocated_ptr, str));
 }
 
 
@@ -39,7 +40,7 @@ char *_strdup(char *str)
  */
 char *_strcopy(char *newstr, char *str)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; str[i] != '\0'; i++)
 		newstr[i] = str[i];
