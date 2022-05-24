@@ -6,7 +6,7 @@
  * sum_them_all - function that sums all int arguements given
  * @n: no of integers to sum
  *
- * Returns: an integer representing sum of numbers of n
+ * Return: an integer representing sum of numbers of n
  */
 
 int sum_them_all(const unsigned int n, ...)
