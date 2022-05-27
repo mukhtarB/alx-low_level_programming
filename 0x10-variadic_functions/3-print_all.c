@@ -24,8 +24,7 @@ void print_all(const char *const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				_putchar(va_arg(arg_list, int));
-				_putchar(',');
+				printf("%c, ", va_arg(arg_list, int));
 				break;
 
 			case 'i':
