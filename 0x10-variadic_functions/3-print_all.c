@@ -36,7 +36,8 @@ void print_all(const char *const format, ...)
 					!str_arg ? printf("%s(nil)", sep) : printf("%s%s", sep, str_arg);
 					break;
 				default:
-					break;
+					i++;
+					continue;
 			}
 
 			sep = ", ";
