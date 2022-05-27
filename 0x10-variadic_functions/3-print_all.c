@@ -33,7 +33,7 @@ void print_all(const char *const format, ...)
 
 			case 'f':
 
-				printf("%s,%f", sep, va_arg(arg_list, double));
+				printf("%s%f", sep, va_arg(arg_list, double));
 				break;
 
 			case 's':
@@ -52,6 +52,6 @@ void print_all(const char *const format, ...)
 		i++;
 	}
 
-	printf("\n");
+	_putchar('\n');
 	va_end(arg_list);
 }
