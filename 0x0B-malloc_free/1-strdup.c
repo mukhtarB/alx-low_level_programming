@@ -14,7 +14,7 @@ int _strlen(char *str);
 char *_strdup(char *str)
 {
 	unsigned int len = _strlen(str);
-	char *allocated_ptr;
+	char *allocated_ptr, *newerstr;
 
 	if (str == NULL)
 		return (NULL);
@@ -27,7 +27,8 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	return (_strcopy(allocated_ptr, str));
+	newerstr = _strcopy(allocated_ptr, str);
+	return (newerstr);
 }
 
 
