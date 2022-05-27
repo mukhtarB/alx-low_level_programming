@@ -3,45 +3,45 @@
 #include "variadic_functions.h"
 
 /**
- * print_strings - Func that prints anything
+ * print_all - Func that prints anything
  *
- * @separator: delimiter for strings
- * @n: number of strings passed
+ * @format: string passed in
  */
 
 void print_all(const char *const format, ...)
 {
-	int i;
+	int i = 0;
 	char *str_arg;
 	va_list arg_list;
 
 	va_start(arg_list, format);
 
-	i = 0;
+	if (!format)
+		return;
+
 	while (format[i] != '\0')
 	{
 		switch (format[i])
 		{
 			case 'c':
 				_putchar(va_arg(arg_list, int));
-				_putchar('\n');
+				_putchar(',');
 				break;
 
 			case 'i':
-				printf("%d\n", va_arg(arg_list, int));
+				printf("%d, ", va_arg(arg_list, int));
 				break;
 
 			case 'f':
-				printf("%f\n", va_arg(arg_list, double));
+
+				printf("%f, ", va_arg(arg_list, double));
 				break;
 
 			case 's':
 				str_arg = va_arg(arg_list, char *);
-
 				if (!*str_arg)
 					str_arg = "(nil)";
-
-				printf("%s\n", str_arg);
+				printf("%s, ", str_arg);
 				break;
 
 			default:
