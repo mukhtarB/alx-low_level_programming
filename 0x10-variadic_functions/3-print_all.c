@@ -27,16 +27,14 @@ void print_all(const char *const format, ...)
 					break;
 				case 'i':
 					printf("%s%d", sep, va_arg(arg_list, int));
-					break
+					break;
 				case 'f':
 					printf("%s%f", sep, va_arg(arg_list, double));
 					break;
-
 				case 's':
 					str_arg = va_arg(arg_list, char *);
 					!str_arg ? printf("%s(nil)", sep) : printf("%s%s", sep, str_arg);
 					break;
-
 				default:
 					break;
 			}
@@ -45,6 +43,7 @@ void print_all(const char *const format, ...)
 			i++;
 		}
 	}
+
 	printf("\n");
 	va_end(arg_list);
 }
