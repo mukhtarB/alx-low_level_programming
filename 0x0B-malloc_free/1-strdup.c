@@ -13,11 +13,13 @@ int _strlen(char *str);
  */
 char *_strdup(char *str)
 {
-	unsigned int len = _strlen(str);
+	unsigned int len;
 	char *allocated_ptr, *newerstr;
 
-	if (str == NULL)
+	if (!str)
 		return (NULL);
+
+	len = _strlen(str);
 
 	allocated_ptr = malloc((len + 1) * sizeof(*str));
 
