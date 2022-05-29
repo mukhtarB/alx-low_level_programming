@@ -14,44 +14,32 @@ int **alloc_grid(int width, int height)
 	int ndx_i, ndx_j;
 	int **outer_arr;
 
+	/* malloc outer arr */
+	/* NB: height is size of outer arr, width is size of inner */
+	outer_arr = malloc(sizeof(*outer_arr) * height);
+
 	/* constraints */
-	if (width < 1 || height < 1)
+	if (width < 1 || height < 1 || !outer_arr)
 		return (NULL);
-
-	/* allocate memory for outer arr */
-	/* NB: height is size of outer_arr, width is size of inner */
-
-	outer_arr = malloc(sizeof(int) * height);
-	if (!outer_arr)
-	{
-		free(outer_arr);
-		return (NULL);
-	}
 
 	/* loop through outer arr & allocate mem for it's elements (inner arr) */
 	for (ndx_i = 0; ndx_i < height; ndx_i++)
 	{
-		outer_arr[ndx_i] = (int *) malloc(sizeof(int) * width);
+		outer_arr[ndx_i] = (int *) malloc(sizeof(**outer_arr) * width);
 
 		/* error handling on malloc: free both 1d & 2d arrs */
 		if (!outer_arr)
 		{
 			/* loop through outer arr to free both current iteration and all before */
-			for (ndx_j = 0; ndx_j < ndx_i; ndx_j++)
-			{
+			while (i--)
 				free(outer_arr[ndx_i]);
-				free(outer_arr);
-				return (NULL);
-			}
+			free(outer_arr);
+			return (NULL);
 		}
-		else /* else execute */
-		{
-			for (ndx_j = 0; ndx_j < width; ndx_j++)
-			{
-				/* init to 0 */
-				outer_arr[ndx_i][ndx_j] = 0;
-			}
-		}
+
+		/* if !NULL: execute */
+		for (ndx_j = 0; ndx_j < width; ndx_j++)
+			outer_arr[ndx_i][ndx_j] = 0; /* init to 0 */
 	}
 
 	return (outer_arr);
