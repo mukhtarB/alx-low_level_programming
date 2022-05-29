@@ -15,16 +15,11 @@ char *str_concat(char *s1, char *s2)
 	char *s3_ptr;
 	int s1_len, s2_len;
 
-	if (s1 == NULL)
-		s1 = "";
-	else if (s2 == NULL)
-		s2 = "";
-
 	s1_len = _strlen(s1);
 	s2_len = _strlen(s2);
 
 	s3_ptr = malloc(sizeof(char) * (s1_len + s2_len + 1));
-	if (s3_ptr == NULL)
+	if (!s3_ptr)
 		return (NULL);
 
 	/* append s1 -> s3 @pos: 0; then append s2 -> s3 @pos: (end of s1) */
@@ -45,6 +40,9 @@ int _strlen(char *str)
 {
 	int len = 0;
 
+	if (!str)
+		str = "";
+
 	while (str[len] != '\0')
 		len++;
 
@@ -63,6 +61,9 @@ int _strlen(char *str)
 char *_strappend(char *newstr, char *str, unsigned int append_index)
 {
 	unsigned int ndx_i = 0;
+
+	if (!str)
+		str = "";
 
 	while (str[ndx_i] != '\0')
 	{
