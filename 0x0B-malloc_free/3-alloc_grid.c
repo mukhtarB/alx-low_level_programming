@@ -22,6 +22,11 @@ int **alloc_grid(int width, int height)
 	/* NB: height is size of outer_arr, width is size of inner */
 
 	outer_arr = malloc(sizeof(int) * height);
+	if (!outer_arr)
+	{
+		free(outer_arr);
+		return (NULL);
+	}
 
 	/* loop through outer arr & allocate mem for it's elements (inner arr) */
 	for (ndx_i = 0; ndx_i < height; ndx_i++)
