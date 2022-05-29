@@ -28,10 +28,10 @@ int **alloc_grid(int width, int height)
 		outer_arr[ndx_i] = (int *) malloc(sizeof(**outer_arr) * width);
 
 		/* error handling on malloc: free both 1d & 2d arrs */
-		if (!outer_arr)
+		if (!outer_arr[ndx_i])
 		{
 			/* loop through outer arr to free both current iteration and all before */
-			while (i--)
+			while (ndx_i--)
 				free(outer_arr[ndx_i]);
 			free(outer_arr);
 			return (NULL);
