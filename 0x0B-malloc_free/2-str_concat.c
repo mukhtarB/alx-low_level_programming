@@ -27,8 +27,8 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 
 	/* append s1 -> s3 @pos: 0; then append s2 -> s3 @pos: (end of s1) */
-	s3_ptr = _strconcat(s3_ptr, s1, 0);
-	s3_ptr = _strconcat(s3_ptr, s2, s1_len);
+	s3_ptr = _strappend(s3_ptr, s1, 0);
+	s3_ptr = _strappend(s3_ptr, s2, s1_len);
 
 	return (s3_ptr);
 }
