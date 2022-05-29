@@ -3,6 +3,7 @@
 
 /**
  * free_grid - Matrix grid to clear memory on
+ * @grid: 2d matrix array of integers
  * @height: size of outer array and height of matrix
  */
 
