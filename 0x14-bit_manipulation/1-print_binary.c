@@ -7,7 +7,7 @@
  * Return: Binary Representation (Success) || 0 (Error)
  */
 
-void print_binary(unsigned long int n);
+void print_binary(unsigned long int n)
 {
-
+	_putchar(n);
 }
