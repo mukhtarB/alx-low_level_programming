@@ -24,7 +24,7 @@ char *argstostr(int ac, char *av[])
 		while (av[ndx_i][ndx_j])
 		{
 			str_size++;
-			ndx_j++
+			ndx_j++;
 		}
 		ndx_i++;
 	}
@@ -50,7 +50,7 @@ char *argstostr(int ac, char *av[])
 		ndx_i++;
 	}
 
-	ptr[ndx_k} = '\0';
+	ptr[ndx_k] = '\0';
 	return (ptr);
 
 }
