@@ -9,5 +9,6 @@ int _strlen(char *str);
 char *_strappend(char *newstr, char *str, unsigned int index);
 int **alloc_grid(int width, int height);
 void free_grid(int **grid, int height);
+char *argstostr(int ac, char *av[]);
 
 #endif /* MAIN_H */
