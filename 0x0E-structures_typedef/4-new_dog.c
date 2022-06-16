@@ -70,10 +70,10 @@ char *_strcpy(char *s2, char *s1)
 {
 	int i = 0;
 
-	while (*(s1 + 1) != '\0')
+	while (*(s1 + i) != '\0')
 	{
 		/* pointer arithmetic */
-		*(s2 + 1) = *(s1 + 1);
+		*(s2 + i) = *(s1 + i);
 		i++;
 	}
 
