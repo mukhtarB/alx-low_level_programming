@@ -77,7 +77,7 @@ char *_strcpy(char *s2, char *s1)
 		i++;
 	}
 
-	*(s2 + 1) = '\0';
+	*(s2) = '\0';
 
 	return (s2);
 }
